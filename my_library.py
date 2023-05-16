@@ -4,5 +4,5 @@ def compute_probs(neg,pos):
   return [p0,p1]
 
 
-def_test_it():
+def test_it():
     return 'loaded'
