@@ -43,7 +43,7 @@ def metrics (your_pred_act_list):
   assert all(len(pair) == 2 for pair in your_pred_act_list), "Each value in the list must be a pair of items."
 
     
-  assert all(isinstance(item, int) and item >= 0 for pair in your_pred_act_list for item in pair), "Each value in the pair must be an integer >= 0."
+  assert all(isinstance(item, (int, float)) and item >= 0 for pair in your_pred_act_list for item in pair), "Each value in the pair must be an integer >= 0."
 
   tn = sum([1 if pair==[0,0] else 0 for pair in your_pred_act_list])
   tp = sum([1 if pair==[1,1] else 0 for pair in your_pred_act_list])
