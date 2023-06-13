@@ -61,10 +61,10 @@ def metrics (your_pred_act_list):
 def try_archs(full_table, target, architectures, thresholds):
   train_table, test_table = up_train_test_split(full_table, target, .4)
 
-
+  #copy paste code here
   for arch in architectures:
     all_results=up_neural_net(train_table, test_table, arch, target)
-
+  #loop through thresholds
     all_mets = []
     for t in thresholds:
       all_predictions = [1 if pos>t else 0 for neg,pos in all_results]
@@ -73,10 +73,10 @@ def try_archs(full_table, target, architectures, thresholds):
       mets['Threshold'] = t
       all_mets = all_mets + [mets]
 
-  print(f'Architecture: {arch}')
-  print(up_metrics_table(all_mets))
+    print(f'Architecture: {arch}')
+    print(up_metrics_table(all_mets))
 
-  return None
+  return None  
 
 from sklearn.ensemble import RandomForestClassifier  #make sure this makes it into your library
 
